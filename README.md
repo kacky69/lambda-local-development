@@ -6,6 +6,8 @@
 - Docker Desktop on Mac がインストールされていること(本手順は 3.1.0 にて動作確認済み)
 - AWSアカウントをもっていること
 - 上記のIAMユーザーがAWSの管理者権限をもっていること(正しくは環境構築にひつような最低限の権限にするべきだが、今回は割愛)
+- Node.jsの環境を構築
+- プロジェクト名は仮当てで[MySamProject]とする
 ## SAMとは何か？
 - SAM => Serverless Application Model
 - Lambdaなどのサーバレスアプリケーションを開発するのに便利なコマンド・ツール
@@ -19,14 +21,13 @@
   $ brew install aws-sam-cli
   $ sam --version # インストールされたことと、バージョンを確認
   ```
-- プロジェクトの作成
-  - 任意のフォルダを作成する
+- SAMプロジェクトの作成
+  - プロジェクトを作成したい任意のフォルダに移動する
     ```
-    $ mkdir ~/Documents/development/sam-dev
+    $ cd ~/Documents/development
     ```
   - samプロジェクトの作成
     ```
-    $ cd ~/Documents/development/sam-dev
     $ sam init
     ```
    - sam init での質問に対して以下のように回答
@@ -40,6 +41,31 @@
       1 - Zip (artifact is a zip uploaded to S3)
       2 - Image (artifact is an image uploaded to an ECR image repository)
     Package type: 2
+    
+    Which base image would you like to use?
+      1 - amazon/nodejs14.x-base
+      2 - amazon/nodejs12.x-base
+      3 - amazon/nodejs10.x-base
+      4 - amazon/python3.8-base
+      5 - amazon/python3.7-base
+      6 - amazon/python3.6-base
+      7 - amazon/python2.7-base
+      8 - amazon/ruby2.7-base
+      9 - amazon/ruby2.5-base
+      10 - amazon/go1.x-base
+      11 - amazon/java11-base
+      12 - amazon/java8.al2-base
+      13 - amazon/java8-base
+      14 - amazon/dotnet5.0-base
+      15 - amazon/dotnetcore3.1-base
+      16 - amazon/dotnetcore2.1-base
+    Base image: 1
+    
+    Project name [sam-app]: MySamProject
+    ```
+   - MySamProject が作成されていることを確認
+    ```
+    $ ls -al
     ```
 
 
