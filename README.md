@@ -111,7 +111,7 @@
 
 - 以下のコマンドで擬似的な API Gateway を立ち上げる
   ```
-  $ sam local start-api # 
+  $ sam local start-api
   ```
   > [http://127.0.0.1:3000/] にて起動する
   > デフォルトでは [http://127.0.0.1:3000/hello] を Lambda へマッピングする
