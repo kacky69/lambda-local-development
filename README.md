@@ -30,7 +30,7 @@
     ```
     $ sam init
     ```
-   - sam init での質問に対して以下のように回答
+  - sam init での質問に対して以下のように回答
     ```
     Which template source would you like to use?
       1 - AWS Quick Start Templates
@@ -63,7 +63,7 @@
     
     Project name [sam-app]: MySamProject
     ```
-   - MySamProject が作成されていることを確認
+  - MySamProject が作成されていることを確認
     ```
     $ ls -al
     ```
