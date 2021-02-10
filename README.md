@@ -8,6 +8,7 @@
 - 上記のIAMユーザーがAWSの管理者権限をもっていること(正しくは環境構築にひつような最低限の権限にするべきだが、今回は割愛)
 - Node.jsの環境を構築
 - プロジェクト名は仮当てで[MySamProject]とする
+
 ## SAMとは何か？
 - SAM => Serverless Application Model
 - Lambdaなどのサーバレスアプリケーションを開発するのに便利なコマンド・ツール
@@ -21,15 +22,19 @@
   $ brew install aws-sam-cli
   $ sam --version # インストールされたことと、バージョンを確認
   ```
+
 - SAMプロジェクトの作成
-  - プロジェクトを作成したい任意のフォルダに移動する
+
+- プロジェクトを作成したい任意のフォルダに移動する
     ```
     $ cd ~/Documents/development
     ```
+    
   - samプロジェクトの作成
     ```
     $ sam init
     ```
+    
   - sam init での質問に対して以下のように回答
     ```
     Which template source would you like to use?
@@ -63,9 +68,16 @@
     
     Project name [sam-app]: MySamProject
     ```
+    
   - MySamProject が作成されていることを確認
     ```
     $ ls -al
+    ```
+
+  - MySamProject ディレクトリに移動し、フォルダ構成を確認
+    ```
+    $ cd MySamProject
+    $ tree
     ```
 
 
