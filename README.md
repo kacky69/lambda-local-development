@@ -12,7 +12,11 @@
 ## SAMとは何か？
 - SAM => Serverless Application Model
 - Lambdaなどのサーバレスアプリケーションを開発するのに便利なコマンド・ツール
-- 参考URL https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html
+
+
+## 参考URL
+  - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html
+  - https://dev.classmethod.jp/articles/lambda-container-pkgfmt-with-sam-cli/
 
 ## 設定手順
 - AWS SAM CLIをホスト上にインストールし
@@ -80,6 +84,53 @@
     $ tree
     ```
 
+## 主要なディレクトリ・ファイル
+
+- [hello_world]ディレクトリ
+  - ソースやpackage.jsonやDockerfileを配置する主要ディレクトリ
+  - このディレクトリにて開発を行う
+  - 各ファイルについての知識がある前提で詳細は割愛
+
+- [template.yaml]
+  - CloudFormation の設定ファイル
+  - 詳細は割愛
+
+## コンテナイメージのビルド
+
+- 以下のコマンドにてコンテナのイメージを作成する
+  ```
+  $ sam build
+  ```
+
+- イメージが作成されたことを確認する
+  ```
+  $ docker images
+  ```
+
+## ローカルで動作確認を行う
+
+- 以下のコマンドで擬似的な API Gateway を立ち上げる
+  ```
+  $ sam local start-api # 
+  ```
+  > [http://127.0.0.1:3000/] にて起動する
+  > デフォルトでは [http://127.0.0.1:3000/hello] を Lambda へマッピングする
+  > どのパスをどのLambda関数にマッピングするかは[template.yaml]の[Resources]にて指定する
+
+- Lambdaの呼び出し
+  - curlを利用する
+    ```
+    curl http://127.0.0.1:3000/hello
+    ```
+  - ブラウザから呼び出す
+    - ブラウザから [http://127.0.0.1:3000/hello] にアクセスする
+
+- Lambdaへのパラメータの渡し方
+  - URLにQueryStringをつけて呼び出す
+  - 例) [http://127.0.0.1:3000/hello?hoge=fuga]
+
+- 擬似的な API Gateway の停止
+  - [Ctr+C]で止める
 
 ## TODO
 - AWS認証情報の設定:**TODO**
